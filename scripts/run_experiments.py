@@ -138,7 +138,7 @@ def run_xgboost(cfg, station, task, train_df, val_df, test_df, eval_idx, seed, s
 
 
 # ---------------------------------------------------------------- deep models
-def run_deep(cfg, kind, station, task, train_df, val_df, test_df, seed):
+def run_deep(cfg, kind, station, task, train_df, val_df, test_df, seed, save_dir=None):
     feats = cfg["features"]["dl"]
     d = cfg["models"]["deep"]
     label = "fog" if task == "overall" else "onset"
@@ -176,6 +176,16 @@ def run_deep(cfg, kind, station, task, train_df, val_df, test_df, seed):
                           (p_test >= thr).astype(int), p_test, thr, val_f1, seed)
     res["best_epoch"] = info["best_epoch"]
     res["n_train_sequences"] = int(len(Xtr))
+
+    if save_dir:
+        os.makedirs(save_dir, exist_ok=True)
+        pred = test_df.iloc[ite][["일시", "fog", "fog_now", "시정(10m)",
+                                  "target_vis_tplus1"]].reset_index(drop=True)
+        pred["prob"] = p_test
+        pred["pred"] = (p_test >= thr).astype(int)
+        safe = name.replace("/", "-")
+        pred.to_csv(os.path.join(save_dir, f"predictions_{task}_{safe}_{station}.csv"),
+                    index=False)
     return res, model
 
 
@@ -220,7 +230,8 @@ def main() -> int:
                 rows.append(xr)
                 rows_default.append(xd)
                 for kind in ("cnn", "lstm"):
-                    r, _ = run_deep(cfg, kind, station, task, train_df, val_df, test_df, seed)
+                    r, _ = run_deep(cfg, kind, station, task, train_df, val_df, test_df,
+                                    seed, save)
                     if r:
                         rows.append(r)
         print(f"    elapsed {time.time()-t0:.0f}s")

@@ -1,0 +1,51 @@
+  Taebaek / overall
+      1D-CNN/Taebaek best_epoch=9 val_f1@0.5=0.2156 epochs_run=12
+      LSTM/Taebaek best_epoch=4 val_f1@0.5=0.1916 epochs_run=7
+    elapsed 55s
+  Daegwallyeong / overall
+      1D-CNN/Daegwallyeong best_epoch=12 val_f1@0.5=0.4066 epochs_run=15
+      LSTM/Daegwallyeong best_epoch=12 val_f1@0.5=0.4006 epochs_run=15
+    elapsed 109s
+  Baengnyeongdo / overall
+      1D-CNN/Baengnyeongdo best_epoch=14 val_f1@0.5=0.6323 epochs_run=15
+      LSTM/Baengnyeongdo best_epoch=12 val_f1@0.5=0.6302 epochs_run=15
+    elapsed 160s
+  Incheon / overall
+      1D-CNN/Incheon best_epoch=3 val_f1@0.5=0.3206 epochs_run=6
+      LSTM/Incheon best_epoch=7 val_f1@0.5=0.3711 epochs_run=10
+    elapsed 195s
+  Ganghwa / overall
+      1D-CNN/Ganghwa best_epoch=3 val_f1@0.5=0.1324 epochs_run=6
+      LSTM/Ganghwa best_epoch=3 val_f1@0.5=0.1725 epochs_run=6
+    elapsed 215s
+  Dongducheon / overall
+      1D-CNN/Dongducheon best_epoch=8 val_f1@0.5=0.2087 epochs_run=11
+      LSTM/Dongducheon best_epoch=12 val_f1@0.5=0.2591 epochs_run=15
+    elapsed 248s
+  Paju / overall
+      1D-CNN/Paju best_epoch=6 val_f1@0.5=0.3545 epochs_run=9
+      LSTM/Paju best_epoch=8 val_f1@0.5=0.3900 epochs_run=11
+    elapsed 279s
+  Cheorwon / overall
+      1D-CNN/Cheorwon best_epoch=10 val_f1@0.5=0.2857 epochs_run=13
+      LSTM/Cheorwon best_epoch=5 val_f1@0.5=0.2946 epochs_run=8
+    elapsed 309s
+  Chuncheon / overall
+      1D-CNN/Chuncheon best_epoch=5 val_f1@0.5=0.1049 epochs_run=8
+      LSTM/Chuncheon best_epoch=3 val_f1@0.5=0.1667 epochs_run=6
+    elapsed 338s
+  Inje / overall
+      1D-CNN/Inje best_epoch=11 val_f1@0.5=0.0720 epochs_run=14
+      LSTM/Inje best_epoch=5 val_f1@0.5=0.0779 epochs_run=8
+    elapsed 362s
+  Sokcho / overall
+      1D-CNN/Sokcho best_epoch=10 val_f1@0.5=0.0689 epochs_run=13
+      LSTM/Sokcho best_epoch=14 val_f1@0.5=0.0909 epochs_run=15
+    elapsed 414s
+  Seoul / overall
+      1D-CNN/Seoul best_epoch=5 val_f1@0.5=0.0224 epochs_run=8
+      LSTM/Seoul best_epoch=5 val_f1@0.5=0.0312 epochs_run=8
+    elapsed 445s
+
+Wrote /home/claude/fog/fog-forecast-repro/results/metrics/station_metrics_verify.csv  (48 rows)
+Wrote /home/claude/fog/fog-forecast-repro/results/metrics/station_metrics_default_threshold_verify.csv

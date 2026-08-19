@@ -1,0 +1,5 @@
+model,detected_1to1,recall_1to1,detected_0to1,recall_0to1,n_positive_1to1,n_positive_0to1,false_alarms,precision
+Persistence,1902,1.0,0,0.0,1902,1067,1062,0.642
+XGBoost,1768,0.93,243,0.228,1902,1067,1695,0.543
+1D-CNN,1529,0.804,379,0.355,1902,1067,3596,0.347
+LSTM,1581,0.831,293,0.275,1902,1067,3066,0.379

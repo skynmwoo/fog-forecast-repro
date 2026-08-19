@@ -272,6 +272,62 @@ What survives significance testing is the cleanest part of the study: **neither
 deep model matches either the persistence baseline or XGBoost on overall T+1
 prediction**, at p < 0.005 in all four comparisons.
 
+### S2 — Transition-type decomposition and prevalence dependence added
+
+Two analyses were added after the statistical audit, both computed by
+`scripts/transition_analysis.py` from the per-row test predictions already
+written by `scripts/run_experiments.py`. **No model was retrained**: the run that
+produced the missing deep-model prediction files was verified to reproduce all
+48 overall-task metric rows and all 20 metric columns bit-identically against the
+stored `station_metrics.csv` before its predictions were used.
+
+**(a) Where overall T+1 skill comes from.** Pooled over the twelve stations the
+overall task has 2,969 positives, of which 1,902 (64.1 %) are 1→1 transitions
+(fog already present and persisting) and 1,067 are 0→1 transitions (fog forming).
+
+| Model | Recall 1→1 | Recall 0→1 | Precision |
+|---|---:|---:|---:|
+| Persistence | 1.000 | 0.000 | 0.642 |
+| XGBoost | 0.930 | 0.228 | 0.543 |
+| 1D-CNN | 0.804 | 0.355 | 0.347 |
+| LSTM | 0.831 | 0.275 | 0.379 |
+
+The ordering by overall F1 (Persistence > XGBoost > LSTM > 1D-CNN) is *reversed*
+on 0→1 recall. This is reported with precision alongside, and the manuscript
+states explicitly that the higher formation recall of the 1D-CNN reflects a more
+liberal operating point rather than better onset detection — on the dedicated
+onset task it ranks last on both F1 and PR-AUC.
+
+These counts refer to the **common evaluation subset** (182,984 rows), not the
+full test period (188,597 rows) reported in Table 2; the manuscript states this
+in both the Section 3.7 text and the Table 5 caption so the two sets of counts
+cannot be mistaken for a discrepancy. The manuscript also avoids describing
+64.1 % as a share of F1 or of "skill": F1 does not decompose that way, and the
+figure is stated as a share of positive cases only.
+
+**(b) When a trained model beats the baseline.** The per-station F1 advantage
+over Persistence is positively associated with station fog prevalence:
+
+| Model | Spearman ρ | raw p | Holm p |
+|---|---:|---:|---:|
+| XGBoost | 0.83 | 0.0010 | 0.0029 |
+| LSTM | 0.71 | 0.0092 | 0.0184 |
+| 1D-CNN | 0.63 | 0.0283 | 0.0283 |
+
+The three p-values are Holm-corrected as a family, consistent with the
+model-comparison tests; all three remain significant at 0.05 after correction.
+
+**The prevalence plotted is the fog(t+1) prevalence of the common evaluation
+subset**, not the training prevalence and not the full test-set prevalence. The
+three differ materially at some stations (Baengnyeongdo 4.78 % evaluation vs
+6.66 % training; Seoul 0.33 % vs 0.15 %), so the manuscript reports the
+relationship as an observational association across twelve stations and
+explicitly declines to attribute it to training-set size.
+
+These became Section 3.7, Table 5 and Figure 7 of the manuscript. They were
+appended at the end of Results so that no pre-existing section, table or figure
+number changed.
+
 ### M2 — MEDIUM — Two stations have far less usable data than the others
 
 After cleaning, Dongducheon (8,578 test rows) and Cheorwon (8,518) have roughly
@@ -534,7 +590,7 @@ Delivered alongside this repository:
 
 | File | Contents |
 |---|---|
-| `Atmosphere_eng_v10_submission.docx` | final revised manuscript; MDPI template, references and Figure 1 preserved, Figures 2–6 replaced with regenerated versions, Tables 2–4 and all prose numbers rebuilt from `results/metrics/` |
+| `Atmosphere_eng_v12_final.docx` | final revised manuscript; MDPI template, references and Figure 1 preserved, Figures 2–6 replaced with regenerated versions, Tables 2–4 and all prose numbers rebuilt from `results/metrics/` |
 | `cover_letter_v5_persistence_lit.docx` | cover letter updated to the reproduced claims |
 | `REPRODUCIBILITY_AUDIT.md` | this document |
 

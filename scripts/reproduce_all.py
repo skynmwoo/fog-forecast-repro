@@ -30,6 +30,7 @@ STEPS = [
     ("run_experiments.py", [], "12 stations x 2 tasks x 4 models"),
     ("run_shap.py", [], "SHAP for the reproduced overall XGBoost models"),
     ("significance_tests.py", [], "paired Wilcoxon tests across the twelve stations"),
+    ("transition_analysis.py", [], "decompose overall skill by transition type; prevalence gap"),
     ("make_tables.py", [], "all manuscript tables from result CSVs"),
     ("make_figures.py", [], "all manuscript figures from result CSVs"),
     ("compare_with_manuscript.py", [], "old vs. reproduced comparison"),

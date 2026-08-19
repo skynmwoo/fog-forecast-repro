@@ -141,6 +141,74 @@ def fig_scatter_prevalence(df, out):
     _save(fig, out, "fig_overall_f1_vs_prevalence")
 
 
+def fig_prevalence_gap(m, out):
+    """Trained-model advantage over Persistence as a function of fog prevalence."""
+    p = os.path.join(m, "prevalence_gap.csv")
+    if not os.path.exists(p):
+        return
+    d = pd.read_csv(p)
+    t = os.path.join(ROOT, "results", "tables", "table_prevalence_gap_correlation.csv")
+    corr = pd.read_csv(t).set_index("model") if os.path.exists(t) else None
+
+    fig, ax = plt.subplots(figsize=(7, 4.8))
+    x = d["common_eval_fog_prevalence_percent"].to_numpy()
+    for mdl in ("XGBoost", "LSTM", "1D-CNN"):
+        col = f"{mdl}_minus_Persistence_f1"
+        if col not in d:
+            continue
+        y = d[col].to_numpy()
+        lab = mdl
+        if corr is not None and mdl in corr.index:
+            lab = (rf"{mdl}  (Spearman $\rho$ = {corr.loc[mdl, 'spearman_rho']:.2f}, "
+                   rf"Holm $p$ = {corr.loc[mdl, 'spearman_p_holm']:.3f})")
+        ax.scatter(x, y, s=46, color=COLORS[mdl], edgecolor="black", lw=0.4, label=lab, zorder=3)
+        b = np.polyfit(np.log(x), y, 1)
+        xs = np.linspace(x.min(), x.max(), 100)
+        ax.plot(xs, np.polyval(b, np.log(xs)), color=COLORS[mdl], lw=1.2, alpha=0.55, zorder=2)
+
+    ax.axhline(0, color="black", lw=1.2, ls="--", zorder=1)
+    ax.set_xscale("log")
+    ax.set_xlabel("fog(t+1) prevalence in the common evaluation subset (%, log scale)")
+    ax.set_ylabel("F1 advantage over Persistence")
+    ax.set_title("Trained-model advantage over Persistence vs. station fog prevalence",
+                 fontsize=11)
+    ax.legend(frameon=False, fontsize=8.5, loc="lower right")
+    ax.text(0.02, 0.96, "above 0: trained model better\nbelow 0: Persistence better",
+            transform=ax.transAxes, va="top", fontsize=8, color="#555555")
+    _save(fig, out, "fig_prevalence_gap")
+
+
+def fig_transition_recall(m, out):
+    """Recall on 1->1 (fog persisting) vs 0->1 (fog forming), pooled over stations."""
+    p = os.path.join(ROOT, "results", "tables", "table_transition_recall.csv")
+    if not os.path.exists(p):
+        return
+    d = pd.read_csv(p)
+    order = [x for x in OVERALL if x in set(d["model"])]
+    d = d.set_index("model").reindex(order).reset_index()
+
+    fig, ax = plt.subplots(figsize=(7.4, 4.4))
+    xi = np.arange(len(d))
+    w = 0.36
+    n11 = int(d["n_positive_1to1"].iloc[0])
+    n01 = int(d["n_positive_0to1"].iloc[0])
+    ax.bar(xi - w / 2, d["recall_1to1"], w, color="#4C72B0", edgecolor="black", lw=0.4,
+           label=rf"1$\rightarrow$1  fog persisting  (n = {n11:,})")
+    ax.bar(xi + w / 2, d["recall_0to1"], w, color="#D55E00", edgecolor="black", lw=0.4,
+           label=rf"0$\rightarrow$1  fog forming  (n = {n01:,})")
+    for i, (a, b) in enumerate(zip(d["recall_1to1"], d["recall_0to1"])):
+        ax.text(i - w / 2, a + 0.015, f"{a:.2f}", ha="center", fontsize=8.5)
+        ax.text(i + w / 2, b + 0.015, f"{b:.2f}", ha="center", fontsize=8.5)
+    ax.set_xticks(xi)
+    ax.set_xticklabels([f"{m}\nprecision {p:.2f}" for m, p in zip(d["model"], d["precision"])],
+                       fontsize=9)
+    ax.set_ylim(0, 1.12)
+    ax.set_ylabel("Recall on the overall T+1 task")
+    ax.set_title("Where overall T+1 skill comes from: fog persistence vs. fog formation")
+    ax.legend(frameon=False, fontsize=9)
+    _save(fig, out, "fig_transition_recall")
+
+
 def fig_shap_global(m, out):
     p = os.path.join(m, "shap_global.csv")
     if not os.path.exists(p):
@@ -242,6 +310,8 @@ def main() -> int:
                          "0→1 fog onset detection — F1 by station",
                          "fig_onset_f1_by_station")
     fig_scatter_prevalence(df, out)
+    fig_prevalence_gap(m, out)
+    fig_transition_recall(m, out)
     fig_shap_global(m, out)
     fig_shap_heatmap(m, out)
     fig_error_visibility(m, out)

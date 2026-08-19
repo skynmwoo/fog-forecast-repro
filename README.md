@@ -120,6 +120,7 @@ python scripts/sanity_check_models.py    # structural gate: is the CNN a CNN, is
 python scripts/run_experiments.py        # 12 stations x 2 tasks x 4 models
 python scripts/run_shap.py               # SHAP on the reproduced XGBoost models
 python scripts/significance_tests.py     # paired Wilcoxon tests across the 12 stations
+python scripts/transition_analysis.py    # decompose overall skill; prevalence-gap correlation
 python scripts/make_tables.py            # all tables, from the result CSVs
 python scripts/make_figures.py           # all figures, from the result CSVs
 python scripts/compare_with_manuscript.py
@@ -168,10 +169,14 @@ python scripts/run_experiments.py --seeds 42 1337 2024 --stability   # seed-vari
 | `results/metrics/stability_metrics.csv` | multi-seed diagnostic |
 | `results/tables/*.csv` | every manuscript table |
 | `results/tables/table_significance_tests.csv` | paired Wilcoxon signed-rank tests, Holm-corrected, with rank-biserial effect sizes |
+| `results/tables/table_transition_recall.csv` | overall-task recall split into 1→1 (fog persisting) and 0→1 (fog forming), with precision |
+| `results/tables/table_prevalence_gap_correlation.csv` | correlation between each model's advantage over Persistence and station fog prevalence |
+| `results/metrics/transition_recall_by_station.csv`, `prevalence_gap.csv` | per-station inputs to the two analyses above |
 | `results/tables/old_vs_new_comparison.csv` | previous manuscript values vs. reproduced values |
 | `results/tables/consistency_audit.csv` | config ↔ result cross-check (also manuscript ↔ config ↔ result when `--manuscript` is passed) |
 | `results/figures/*.png`, `*.pdf` | every manuscript figure |
 | `checkpoints/<task>/xgb_<task>_<Station>.json` | trained XGBoost models (regenerated locally; **not committed** to the repository) |
+| `checkpoints/<task>/predictions_<task>[_<model>]_<Station>.csv` | per-row test predictions for every model, used by `transition_analysis.py` (not committed) |
 | `results/logs/run_env.json` | package versions, seeds, stations, elapsed time |
 
 ---
