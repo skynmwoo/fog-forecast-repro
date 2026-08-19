@@ -1,5 +1,8 @@
-# Keep repository line endings LF across Windows/macOS/Linux.
+# Keep the repository line-endings LF so the pipeline behaves identically on
+# Windows, macOS and Linux. Git converts to the platform default on checkout.
 * text=auto eol=lf
+
+# Binary assets must never be line-ending converted.
 *.png binary
 *.pdf binary
 *.parquet binary

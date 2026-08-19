@@ -3,7 +3,8 @@
 **Audited manuscript:** `Atmosphere_eng_v5.docx`
 **Audit performed:** 2026-08-19
 **Auditor:** automated re-implementation and re-execution from raw KMA ASOS data
-**Canonical codebase produced by this audit:** `fog-forecast-repro/`
+**Canonical codebase produced by this audit:** `fog-forecast-repro/`  
+**Public repository:** <https://github.com/skynmwoo/fog-forecast-repro>
 
 > **Bottom line.** The deep-learning code in the project was *not* a disguised
 > MLP — real `Conv1D` and `LSTM` layers were present. The far more serious
@@ -533,7 +534,7 @@ Delivered alongside this repository:
 
 | File | Contents |
 |---|---|
-| `Atmosphere_eng_v9_persistence_lit.docx` | final revised manuscript; MDPI template, references and Figure 1 preserved, Figures 2–6 replaced with regenerated versions, Tables 2–4 and all prose numbers rebuilt from `results/metrics/` |
+| `Atmosphere_eng_v10_submission.docx` | final revised manuscript; MDPI template, references and Figure 1 preserved, Figures 2–6 replaced with regenerated versions, Tables 2–4 and all prose numbers rebuilt from `results/metrics/` |
 | `cover_letter_v5_persistence_lit.docx` | cover letter updated to the reproduced claims |
 | `REPRODUCIBILITY_AUDIT.md` | this document |
 

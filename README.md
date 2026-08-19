@@ -9,6 +9,8 @@ repository from the raw observations. Nothing is transcribed by hand. The audit
 that produced this repository is documented in
 [`REPRODUCIBILITY_AUDIT.md`](REPRODUCIBILITY_AUDIT.md).
 
+**Repository:** <https://github.com/skynmwoo/fog-forecast-repro>
+
 ---
 
 ## Study
@@ -90,7 +92,7 @@ Dongducheon, Chuncheon, Cheorwon, Taebaek, Sokcho, Seoul, Inje.
 ## Installation
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/skynmwoo/fog-forecast-repro.git
 cd fog-forecast-repro
 python -m venv .venv && source .venv/bin/activate     # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
@@ -236,8 +238,15 @@ checkpoints/              empty here; populated locally by scripts/run_experimen
 
 ## Citation
 
-If you use this code, please cite the accompanying paper. Details will be added
-here on acceptance.
+If you use this code, please cite the accompanying paper. Full bibliographic
+details will be added here on acceptance. Until then, please cite the
+repository:
+
+```
+Woo, S.; Kim, I. Short-term fog forecasting and onset detection from
+multi-station ASOS observations in Korea (software).
+https://github.com/skynmwoo/fog-forecast-repro
+```
 
 ## License
 

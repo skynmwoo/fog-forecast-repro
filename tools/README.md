@@ -25,7 +25,7 @@ cd tools
 unzip -q <manuscript_template>.docx -d unpacked
 
 # 2. write the current results into it
-python update_manuscript.py          # -> tools/Atmosphere_eng_v9_persistence_lit.docx
+python update_manuscript.py          # -> tools/Atmosphere_eng_v10_submission.docx
 
 # 3. cover letter (template path via environment variable or tools/cover_letter_template.docx)
 COVER_LETTER_TEMPLATE=<path>.docx python update_cover_letter.py
@@ -44,7 +44,7 @@ English builder, so the two language versions cannot drift apart numerically.
 `configs/default.yaml` and `results/metrics/`:
 
 ```bash
-python scripts/audit_consistency.py --manuscript tools/Atmosphere_eng_v9_persistence_lit.docx
+python scripts/audit_consistency.py --manuscript tools/Atmosphere_eng_v10_submission.docx
 ```
 
 Note that `scripts/reproduce_all.py` runs `audit_consistency.py` **without** a
