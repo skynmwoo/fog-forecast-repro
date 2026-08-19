@@ -1,0 +1,5 @@
+transition,description,count,proportion_percent
+0→0,Non-fog persistence,913428,97.64
+0→1,Fog onset,5543,0.59
+1→0,Fog dissipation,5534,0.59
+1→1,Fog persistence,11040,1.18

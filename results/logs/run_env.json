@@ -1,0 +1,23 @@
+{
+  "python": "3.11.15",
+  "torch": "2.13.0+cu130",
+  "numpy": "2.4.4",
+  "pandas": "3.0.2",
+  "seeds": [
+    42,
+    1337,
+    2024
+  ],
+  "stations": [
+    "Baengnyeongdo",
+    "Paju",
+    "Taebaek",
+    "Seoul"
+  ],
+  "tasks": [
+    "overall",
+    "onset"
+  ],
+  "config": "configs/default.yaml",
+  "elapsed_sec": 832.8
+}

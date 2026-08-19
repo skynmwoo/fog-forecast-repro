@@ -1,0 +1,25 @@
+  Taebaek: SHAP on 16,785 rows
+  Daegwallyeong: SHAP on 16,860 rows
+  Baengnyeongdo: SHAP on 17,071 rows
+  Incheon: SHAP on 17,202 rows
+  Ganghwa: SHAP on 16,990 rows
+  Dongducheon: SHAP on 8,401 rows
+  Paju: SHAP on 16,749 rows
+  Cheorwon: SHAP on 6,358 rows
+  Chuncheon: SHAP on 16,484 rows
+  Inje: SHAP on 16,579 rows
+  Sokcho: SHAP on 16,329 rows
+  Seoul: SHAP on 17,176 rows
+
+Global mean |SHAP| ranking (top 10):
+             feature  mean_abs_shap  rank
+             시정(10m)       2.070038     1
+dew_point_depression       0.691312     2
+           vis_lag_1       0.651864     3
+               습도(%)       0.475644     4
+     air_ground_diff       0.239332     5
+           현지기압(hPa)       0.238034     6
+           vis_lag_2       0.220698     7
+           vis_lag_3       0.187894     8
+           dpd_ratio       0.180159     9
+             풍속(m/s)       0.177970    10

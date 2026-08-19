@@ -1,0 +1,13 @@
+station,persistence_f1,xgboost_f1_tuned,xgboost_f1_default_0.5,persistence_beats_xgb_tuned
+Baengnyeongdo,0.7377,0.7449,0.6391,False
+Daegwallyeong,0.611,0.6266,0.4892,False
+Paju,0.6325,0.6319,0.3378,True
+Incheon,0.6785,0.6693,0.5047,True
+Ganghwa,0.5631,0.5597,0.3869,True
+Dongducheon,0.6449,0.6481,0.3111,False
+Chuncheon,0.5778,0.417,0.4247,True
+Taebaek,0.6007,0.5849,0.3585,True
+Cheorwon,0.6154,0.4872,0.4502,True
+Sokcho,0.562,0.5077,0.3843,True
+Seoul,0.4464,0.1822,0.3353,True
+Inje,0.2619,0.0282,0.1222,True

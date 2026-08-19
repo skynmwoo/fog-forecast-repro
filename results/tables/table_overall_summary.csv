@@ -1,0 +1,5 @@
+model,f1_mean,f1_sd,precision_mean,recall_mean,pr_auc_mean,best_in_n_stations,n_stations
+Persistence,0.5777,0.122,0.5782,0.5772,0.3531,9,12
+XGBoost,0.5073,0.21,0.4893,0.5825,0.5247,3,12
+1D-CNN,0.3691,0.1941,0.3116,0.5268,0.3384,0,12
+LSTM,0.4295,0.2066,0.3867,0.5569,0.4263,0,12

@@ -1,0 +1,5 @@
+model,f1_mean,f1_sd,pr_auc_mean,best_in_n_stations,n_stations
+No-Onset Baseline,0.0,0.0,0.0059,0,12
+XGBoost-Onset,0.1876,0.1049,0.1334,8,12
+1D-CNN-Onset,0.1408,0.0719,0.0877,2,12
+LSTM-Onset,0.1659,0.0769,0.1383,2,12

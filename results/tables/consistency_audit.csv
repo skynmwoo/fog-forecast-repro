@@ -1,0 +1,25 @@
+item,manuscript,code_or_result,source,status
+Sequence length,6.0,6,config deep.seq_len,PASS
+DL input variables,14.0,14,config features.dl,PASS
+CNN kernel size,3.0,3,config deep.cnn.kernel_size,PASS
+LSTM hidden size,64.0,64,config deep.lstm.hidden_size,PASS
+Batch size,512.0,512,config deep.batch_size,PASS
+Max epochs,15.0,15,config deep.max_epochs,PASS
+Dropout,0.3,0.3,config deep.dropout,PASS
+Adam learning rate,0.001,0.001,config deep.learning_rate,PASS
+XGB n_estimators,250.0,250,config xgboost,PASS
+XGB max_depth,5.0,5,config xgboost,PASS
+XGB learning_rate,0.03,0.03,config xgboost,PASS
+XGB subsample,0.6,0.6,config xgboost,PASS
+XGB colsample_bytree,0.6,0.6,config xgboost,PASS
+Train period start,2015,2015,config data.years,PASS
+Test period,2023-2024,2023-2024,"config train_end=2022-01-01, val_end=2023-01-01",PASS
+Overall mean F1 — Persistence,0.578,0.578,results/metrics/station_metrics.csv,PASS
+Overall mean F1 — XGBoost,0.507,0.507,results/metrics/station_metrics.csv,PASS
+Overall mean F1 — 1D-CNN,0.369,0.369,results/metrics/station_metrics.csv,PASS
+Overall mean F1 — LSTM,0.429,0.429,results/metrics/station_metrics.csv,PASS
+Onset mean F1 — No-Onset Baseline,0.0,0.0,results/metrics/station_metrics.csv,PASS
+Onset mean F1 — XGBoost-Onset,0.188,0.188,results/metrics/station_metrics.csv,PASS
+Onset mean F1 — 1D-CNN-Onset,0.141,0.141,results/metrics/station_metrics.csv,PASS
+Onset mean F1 — LSTM-Onset,0.166,0.166,results/metrics/station_metrics.csv,PASS
+Table 3 cells == station_metrics.csv,0,0,make_tables.py output,PASS

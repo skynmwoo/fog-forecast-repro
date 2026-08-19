@@ -1,0 +1,9 @@
+# Keep repository line endings LF across Windows/macOS/Linux.
+* text=auto eol=lf
+*.png binary
+*.pdf binary
+*.parquet binary
+*.npy binary
+*.docx binary
+*.xlsx binary
+*.zip binary

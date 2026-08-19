@@ -1,0 +1,62 @@
+  Baengnyeongdo / overall
+      1D-CNN/Baengnyeongdo best_epoch=14 val_f1@0.5=0.6323 epochs_run=15
+      LSTM/Baengnyeongdo best_epoch=12 val_f1@0.5=0.6302 epochs_run=15
+      1D-CNN/Baengnyeongdo best_epoch=15 val_f1@0.5=0.5972 epochs_run=15
+      LSTM/Baengnyeongdo best_epoch=5 val_f1@0.5=0.6207 epochs_run=8
+      1D-CNN/Baengnyeongdo best_epoch=15 val_f1@0.5=0.6027 epochs_run=15
+      LSTM/Baengnyeongdo best_epoch=10 val_f1@0.5=0.6282 epochs_run=13
+  Baengnyeongdo / onset
+      1D-CNN-Onset/Baengnyeongdo best_epoch=3 val_f1@0.5=0.1391 epochs_run=6
+      LSTM-Onset/Baengnyeongdo best_epoch=5 val_f1@0.5=0.1676 epochs_run=8
+      1D-CNN-Onset/Baengnyeongdo best_epoch=5 val_f1@0.5=0.1540 epochs_run=8
+      LSTM-Onset/Baengnyeongdo best_epoch=5 val_f1@0.5=0.1656 epochs_run=8
+      1D-CNN-Onset/Baengnyeongdo best_epoch=8 val_f1@0.5=0.1708 epochs_run=11
+      LSTM-Onset/Baengnyeongdo best_epoch=7 val_f1@0.5=0.1798 epochs_run=10
+    elapsed 234s
+  Paju / overall
+      1D-CNN/Paju best_epoch=6 val_f1@0.5=0.3545 epochs_run=9
+      LSTM/Paju best_epoch=8 val_f1@0.5=0.3900 epochs_run=11
+      1D-CNN/Paju best_epoch=12 val_f1@0.5=0.3900 epochs_run=15
+      LSTM/Paju best_epoch=8 val_f1@0.5=0.4071 epochs_run=11
+      1D-CNN/Paju best_epoch=15 val_f1@0.5=0.4207 epochs_run=15
+      LSTM/Paju best_epoch=5 val_f1@0.5=0.3487 epochs_run=8
+  Paju / onset
+      1D-CNN-Onset/Paju best_epoch=5 val_f1@0.5=0.0908 epochs_run=8
+      LSTM-Onset/Paju best_epoch=5 val_f1@0.5=0.0904 epochs_run=8
+      1D-CNN-Onset/Paju best_epoch=10 val_f1@0.5=0.0871 epochs_run=13
+      LSTM-Onset/Paju best_epoch=6 val_f1@0.5=0.0906 epochs_run=9
+      1D-CNN-Onset/Paju best_epoch=10 val_f1@0.5=0.0964 epochs_run=13
+      LSTM-Onset/Paju best_epoch=10 val_f1@0.5=0.0901 epochs_run=13
+    elapsed 433s
+  Taebaek / overall
+      1D-CNN/Taebaek best_epoch=9 val_f1@0.5=0.2156 epochs_run=12
+      LSTM/Taebaek best_epoch=4 val_f1@0.5=0.1916 epochs_run=7
+      1D-CNN/Taebaek best_epoch=5 val_f1@0.5=0.1527 epochs_run=8
+      LSTM/Taebaek best_epoch=7 val_f1@0.5=0.1871 epochs_run=10
+      1D-CNN/Taebaek best_epoch=7 val_f1@0.5=0.1972 epochs_run=10
+      LSTM/Taebaek best_epoch=7 val_f1@0.5=0.2126 epochs_run=10
+  Taebaek / onset
+      1D-CNN-Onset/Taebaek best_epoch=7 val_f1@0.5=0.0476 epochs_run=10
+      LSTM-Onset/Taebaek best_epoch=5 val_f1@0.5=0.0504 epochs_run=8
+      1D-CNN-Onset/Taebaek best_epoch=5 val_f1@0.5=0.0384 epochs_run=8
+      LSTM-Onset/Taebaek best_epoch=15 val_f1@0.5=0.0615 epochs_run=15
+      1D-CNN-Onset/Taebaek best_epoch=3 val_f1@0.5=0.0429 epochs_run=6
+      LSTM-Onset/Taebaek best_epoch=8 val_f1@0.5=0.0628 epochs_run=11
+    elapsed 636s
+  Seoul / overall
+      1D-CNN/Seoul best_epoch=5 val_f1@0.5=0.0224 epochs_run=8
+      LSTM/Seoul best_epoch=5 val_f1@0.5=0.0312 epochs_run=8
+      1D-CNN/Seoul best_epoch=4 val_f1@0.5=0.0167 epochs_run=7
+      LSTM/Seoul best_epoch=7 val_f1@0.5=0.0336 epochs_run=10
+      1D-CNN/Seoul best_epoch=8 val_f1@0.5=0.0189 epochs_run=11
+      LSTM/Seoul best_epoch=5 val_f1@0.5=0.0393 epochs_run=8
+  Seoul / onset
+      1D-CNN-Onset/Seoul best_epoch=1 val_f1@0.5=0.0106 epochs_run=4
+      LSTM-Onset/Seoul best_epoch=7 val_f1@0.5=0.0260 epochs_run=10
+      1D-CNN-Onset/Seoul best_epoch=8 val_f1@0.5=0.0182 epochs_run=11
+      LSTM-Onset/Seoul best_epoch=6 val_f1@0.5=0.0263 epochs_run=9
+      1D-CNN-Onset/Seoul best_epoch=3 val_f1@0.5=0.0129 epochs_run=6
+      LSTM-Onset/Seoul best_epoch=6 val_f1@0.5=0.0215 epochs_run=9
+    elapsed 833s
+
+Wrote /home/claude/fog/fog-forecast-repro/results/metrics/stability_metrics.csv  (80 rows)

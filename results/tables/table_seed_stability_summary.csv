@@ -1,0 +1,7 @@
+task,model,mean_f1_across_seeds,mean_within_station_sd,mean_within_station_range
+onset,1D-CNN-Onset,0.1497,0.0383,0.0751
+onset,LSTM-Onset,0.1851,0.0229,0.0436
+onset,XGBoost-Onset,0.2052,0.0072,0.0139
+overall,1D-CNN,0.4084,0.0369,0.0706
+overall,LSTM,0.4519,0.0372,0.0742
+overall,XGBoost,0.5469,0.011,0.0207
